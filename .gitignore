@@ -1,41 +1,45 @@
-# Compiled Lua sources
-luac.out
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Cheat Hub", IntroText = "Welcome to Cheat Hub!", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
-# luarocks build files
-*.src.rock
-*.zip
-*.tar.gz
 
-# Object files
-*.o
-*.os
-*.ko
-*.obj
-*.elf
+local FunTab = Window:MakeTab({
+	Name = "Fun",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
 
-# Precompiled Headers
-*.gch
-*.pch
+local FunSection = FunTab:AddSection({
+	Name = "Fun"
+})
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-*.def
-*.exp
+FunTab:AddSlider({
+	Name = "WalkSpeed",
+	Min = 16,
+	Max = 250,
+	Default = 1,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 10,
+	ValueName = "WalkSpeed",
+	Callback = function(v)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = v
+	end    
+})
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
+FunTab:AddSlider({
+	Name = "JumpPower",
+	Min = 50,
+	Max = 500,
+	Default = 1,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 10,
+	ValueName = "JumpPower",
+	Callback = function(v)
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = v
+	end    
+})
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
 
+
+
+
+OrionLib:Init()
