@@ -1,0 +1,45 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Cheat Hub", IntroText = "Welcome to Cheat Hub!", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+
+local FunTab = Window:MakeTab({
+	Name = "Fun",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local FunSection = FunTab:AddSection({
+	Name = "Fun"
+})
+
+FunTab:AddSlider({
+	Name = "WalkSpeed",
+	Min = 16,
+	Max = 250,
+	Default = 1,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 10,
+	ValueName = "WalkSpeed",
+	Callback = function(v)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = v
+	end    
+})
+
+FunTab:AddSlider({
+	Name = "JumpPower",
+	Min = 50,
+	Max = 500,
+	Default = 1,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 10,
+	ValueName = "JumpPower",
+	Callback = function(v)
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = v
+	end    
+})
+
+
+
+
+
+OrionLib:Init()
